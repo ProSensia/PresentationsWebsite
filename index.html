@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Campus Energy Intelligence | IoT Predictive Maintenance</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-brain"></i> ProSensia
+        </div>
+        <ul class="nav-links">
+            <li><a href="#problem">The Problem</a></li>
+            <li><a href="#solution">Solution</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#predictive">Predictive AI</a></li>
+            <li><a href="#roi">ROI Calculator</a></li>
+            <li><a href="#timeline">Implementation</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">Book Demo</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transform Campus Energy into <span>Intelligent Efficiency</span></h1>
+            <p>IoT-powered predictive maintenance and energy optimization platform for universities. Reduce costs by 40%
+                while improving campus sustainability.</p>
+            <div class="hero-buttons">
+                <a href="#demo" class="btn-primary">
+                    <i class="fas fa-play-circle"></i> View Interactive Demo
+                </a>
+                <a href="#calculator" class="btn-secondary">
+                    <i class="fas fa-calculator"></i> Calculate Your Savings
+                </a>
+            </div>
+            <div class="stats-counter">
+                <div class="stat">
+                    <div class="stat-number" data-count="40">0</div>
+                    <div class="stat-label">Energy Savings</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-count="67">0</div>
+                    <div class="stat-label">Maintenance Reduction</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-label">Universities Transformed</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Whiteboard Animation -->
+        <div class="whiteboard-container">
+            <div class="whiteboard-canvas" id="whiteboardCanvas">
+                <!-- SVG will be injected here -->
+            </div>
+            <div class="hand-cursor" id="handCursor"></div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section" id="problem">
+        <h2 class="section-title">The Hidden Energy Crisis on Campus</h2>
+
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Uncontrolled Energy Waste</h3>
+                <p>AC units running empty classrooms consume 40% more energy than needed, with no real-time monitoring
+                    or control.</p>
+                <div class="energy-meter" style="margin-top: 20px;">
+                    <div class="meter">
+                        <div class="meter-fill"></div>
+                    </div>
+                    <div class="meter-labels">
+                        <span>Efficient</span>
+                        <span>Wasteful</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Reactive Maintenance</h3>
+                <p>Equipment fails without warning, causing emergency repairs, classroom disruptions, and budget
+                    overruns.</p>
+                <div class="breakdown-timeline" style="margin-top: 20px;">
+                    <div class="timeline-item"
+                        style="width: 100%; height: 30px; background: #ff4757; border-radius: 5px; margin-bottom: 5px;">
+                    </div>
+                    <div class="timeline-item"
+                        style="width: 70%; height: 30px; background: #ff9f43; border-radius: 5px; margin-bottom: 5px;">
+                    </div>
+                    <div class="timeline-item"
+                        style="width: 40%; height: 30px; background: #2ed573; border-radius: 5px;"></div>
+                </div>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Budget Drain</h3>
+                <p>Unexpected energy spikes and repair costs consume funds that should support educational programs.</p>
+                <div class="cost-animation" style="margin-top: 20px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="font-size: 1.5rem; color: #ff4757;">$</div>
+                        <div
+                            style="width: 100%; height: 30px; background: linear-gradient(90deg, #ff4757, #ff9f43); border-radius: 5px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Campus Map Visualization -->
+        <div class="campus-map-container">
+            <h3 style="text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">Energy Consumption Across Campus
+                Buildings</h3>
+            <div class="campus-map">
+                <!-- Buildings will be dynamically added -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section" id="solution" style="background: #f8f9fa;">
+        <h2 class="section-title">Our Intelligent Solution</h2>
+
+        <div class="solution-process">
+            <div class="process-step" id="step1" style="top: 20%; left: 10%;">
+                <div style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h3>IoT Device Installation</h3>
+                <p>Non-invasive smart sensors attach to existing AC units in minutes.</p>
+            </div>
+
+            <div class="process-step" id="step2" style="top: 60%; left: 25%;">
+                <div style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <h3>Real-time Data Streaming</h3>
+                <p>Continuous monitoring transmits to secure cloud dashboard.</p>
+            </div>
+
+            <div class="process-step active" id="step3" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                <div style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>AI Predictive Analytics</h3>
+                <p>Machine learning identifies patterns and predicts failures.</p>
+            </div>
+
+            <div class="process-step" id="step4" style="top: 60%; right: 25%;">
+                <div style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile Alerts & Control</h3>
+                <p>Maintenance teams receive alerts and can control remotely.</p>
+            </div>
+
+            <div class="process-step" id="step5" style="top: 20%; right: 10%;">
+                <div style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <h3>Performance Analytics</h3>
+                <p>Comprehensive reporting on savings and efficiency gains.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Demo -->
+    <section class="section" id="dashboard">
+        <h2 class="section-title">Live Dashboard Demo</h2>
+
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <div>
+                    <h3 style="color: white; font-size: 1.2rem;">
+                        <i class="fas fa-tachometer-alt"></i> ProSensia Dashboard
+                    </h3>
+                    <p style="color: #aaa; font-size: 0.9rem;">Live Monitoring - University of Technology</p>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 5px;">
+                        <span style="color: #2ed573; font-weight: 600;">●</span> All Systems Operational
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 5px;">
+                        Last Updated: <span id="liveTime">10:24:35 AM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-body">
+                <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 2rem;">
+                        <h4>Building Energy Consumption (Today)</h4>
+                        <div style="display: flex; gap: 1rem;">
+                            <select style="padding: 0.5rem; border-radius: 5px; border: 1px solid #ddd;">
+                                <option>All Buildings</option>
+                                <option>Science Block</option>
+                                <option>Library</option>
+                                <option>Administration</option>
+                            </select>
+                            <button
+                                style="padding: 0.5rem 1rem; background: var(--primary); color: white; border: none; border-radius: 5px;">
+                                <i class="fas fa-download"></i> Export
+                            </button>
+                        </div>
+                    </div>
+
+                    <div style="height: 300px; background: #f8f9fa; border-radius: 10px; padding: 1rem;">
+                        <canvas id="energyChart"></canvas>
+                    </div>
+
+                    <div class="metrics-grid" style="margin-top: 2rem;">
+                        <div class="metric-card">
+                            <div style="font-size: 0.9rem; color: #666;">Energy Saved Today</div>
+                            <div class="metric-value">1,842 kWh</div>
+                            <div class="metric-change">
+                                <i class="fas fa-arrow-up"></i> 12% vs yesterday
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div style="font-size: 0.9rem; color: #666;">Active AC Units</div>
+                            <div class="metric-value">87/156</div>
+                            <div class="metric-change">
+                                <i class="fas fa-check-circle"></i> 56% optimized
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div style="font-size: 0.9rem; color: #666;">CO2 Reduced</div>
+                            <div class="metric-value">1.2 tons</div>
+                            <div class="metric-change">
+                                <i class="fas fa-leaf"></i> Equivalent to 28 trees
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div style="font-size: 0.9rem; color: #666;">Cost Savings</div>
+                            <div class="metric-value">$412</div>
+                            <div class="metric-change">
+                                <i class="fas fa-dollar-sign"></i> Today's savings
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 style="margin-bottom: 1.5rem;">Live Alerts & Notifications</h4>
+
+                    <div class="alert-container">
+                        <div class="alert critical">
+                            <div style="display: flex; justify-content: space-between;">
+                                <strong><i class="fas fa-exclamation-triangle"></i> CRITICAL</strong>
+                                <span style="font-size: 0.8rem;">2 min ago</span>
+                            </div>
+                            <p>AC-12B: Compressor temperature exceeding threshold (45°C)</p>
+                            <button
+                                style="margin-top: 10px; padding: 0.3rem 1rem; background: #ff4757; color: white; border: none; border-radius: 5px; font-size: 0.8rem;">
+                                Acknowledge
+                            </button>
+                        </div>
+
+                        <div class="alert warning">
+                            <div style="display: flex; justify-content: space-between;">
+                                <strong><i class="fas fa-exclamation-circle"></i> WARNING</strong>
+                                <span style="font-size: 0.8rem;">15 min ago</span>
+                            </div>
+                            <p>Library West Wing: Energy consumption 25% above schedule</p>
+                            <button
+                                style="margin-top: 10px; padding: 0.3rem 1rem; background: #ff9f43; color: white; border: none; border-radius: 5px; font-size: 0.8rem;">
+                                View Details
+                            </button>
+                        </div>
+
+                        <div class="alert info">
+                            <div style="display: flex; justify-content: space-between;">
+                                <strong><i class="fas fa-info-circle"></i> INFO</strong>
+                                <span style="font-size: 0.8rem;">1 hour ago</span>
+                            </div>
+                            <p>Science Block AC maintenance completed successfully</p>
+                        </div>
+
+                        <div class="alert info">
+                            <div style="display: flex; justify-content: space-between;">
+                                <strong><i class="fas fa-info-circle"></i> PREDICTIVE</strong>
+                                <span style="font-size: 0.8rem;">3 hours ago</span>
+                            </div>
+                            <p>AC-07C: Filter performance degrading. Schedule cleaning within 7 days.</p>
+                            <button
+                                style="margin-top: 10px; padding: 0.3rem 1rem; background: var(--secondary); color: white; border: none; border-radius: 5px; font-size: 0.8rem;">
+                                Schedule
+                            </button>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 10px;">
+                        <h5 style="margin-bottom: 1rem;">Quick Actions</h5>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <button class="btn-primary" style="padding: 0.8rem; font-size: 0.9rem;">
+                                <i class="fas fa-power-off"></i> All AC Off
+                            </button>
+                            <button class="btn-secondary" style="padding: 0.8rem; font-size: 0.9rem;">
+                                <i class="fas fa-calendar"></i> Set Schedule
+                            </button>
+                            <button class="btn-primary" style="padding: 0.8rem; font-size: 0.9rem;">
+                                <i class="fas fa-bell"></i> Mute Alerts
+                            </button>
+                            <button class="btn-secondary" style="padding: 0.8rem; font-size: 0.9rem;">
+                                <i class="fas fa-file-export"></i> Generate Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Predictive Analytics -->
+    <section class="section" id="predictive">
+        <h2 class="section-title">Predictive Maintenance AI</h2>
+
+        <div class="analytics-container">
+            <div class="chart-container">
+                <h4 style="margin-bottom: 1rem;">AC Performance Analytics</h4>
+                <canvas id="performanceChart"></canvas>
+            </div>
+
+            <div class="alert-container">
+                <h4 style="margin-bottom: 1rem;">Predictive Alerts Timeline</h4>
+
+                <div style="position: relative; height: 300px;">
+                    <div style="position: absolute; left: 30px; top: 0; bottom: 0; width: 2px; background: #ddd;"></div>
+
+                    <div
+                        style="position: absolute; left: 20px; top: 0; width: 20px; height: 20px; background: #2ed573; border-radius: 50%;">
+                    </div>
+                    <div style="position: absolute; left: 40px; top: 0; right: 0;">
+                        <div style="font-weight: 600;">Normal Operation</div>
+                        <div style="font-size: 0.9rem; color: #666;">All systems within optimal parameters</div>
+                    </div>
+
+                    <div
+                        style="position: absolute; left: 20px; top: 80px; width: 20px; height: 20px; background: #ff9f43; border-radius: 50%;">
+                    </div>
+                    <div style="position: absolute; left: 40px; top: 80px; right: 0;">
+                        <div style="font-weight: 600;">Early Warning Detected</div>
+                        <div style="font-size: 0.9rem; color: #666;">Performance deviation of 15% detected</div>
+                    </div>
+
+                    <div
+                        style="position: absolute; left: 20px; top: 160px; width: 20px; height: 20px; background: #ff4757; border-radius: 50%;">
+                    </div>
+                    <div style="position: absolute; left: 40px; top: 160px; right: 0;">
+                        <div style="font-weight: 600;">Predictive Alert Generated</div>
+                        <div style="font-size: 0.9rem; color: #666;">Failure predicted in 7-10 days</div>
+                    </div>
+
+                    <div
+                        style="position: absolute; left: 20px; top: 240px; width: 20px; height: 20px; background: #2ed573; border-radius: 50%; border: 2px solid #2ed573;">
+                    </div>
+                    <div style="position: absolute; left: 40px; top: 240px; right: 0;">
+                        <div style="font-weight: 600;">Preventive Maintenance Completed</div>
+                        <div style="font-size: 0.9rem; color: #666;">Issue resolved before failure</div>
+                    </div>
+                </div>
+
+                <div
+                    style="margin-top: 2rem; padding: 1rem; background: #e8f5e8; border-radius: 10px; border-left: 4px solid #2ed573;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-check-circle" style="color: #2ed573; font-size: 1.5rem;"></i>
+                        <div>
+                            <div style="font-weight: 600;">System Health: Excellent</div>
+                            <div style="font-size: 0.9rem;">All units operating within predictive maintenance window
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="section" id="roi" style="background: #f8f9fa;">
+        <h2 class="section-title">Calculate Your Campus Savings</h2>
+
+        <div class="calculator-container">
+            <p
+                style="text-align: center; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Adjust the sliders below to see how much your university can save with intelligent energy management.
+            </p>
+
+            <div class="slider-container">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <label for="acCount">Number of AC Units</label>
+                    <span id="acCountValue">150</span>
+                </div>
+                <input type="range" min="50" max="500" value="150" class="slider" id="acCount">
+            </div>
+
+            <div class="slider-container">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <label for="energyCost">Energy Cost per kWh ($)</label>
+                    <span id="energyCostValue">0.15</span>
+                </div>
+                <input type="range" min="0.05" max="0.30" step="0.01" value="0.15" class="slider" id="energyCost">
+            </div>
+
+            <div class="slider-container">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <label for="maintenanceCost">Avg. Maintenance Cost per Unit ($)</label>
+                    <span id="maintenanceCostValue">300</span>
+                </div>
+                <input type="range" min="100" max="1000" value="300" class="slider" id="maintenanceCost">
+            </div>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div style="font-size: 1rem; color: #666;">Annual Energy Savings</div>
+                    <div class="result-value" id="annualEnergySavings">$42,750</div>
+                    <div style="font-size: 0.9rem; color: #2ed573;">
+                        <i class="fas fa-arrow-down"></i> 40% reduction
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div style="font-size: 1rem; color: #666;">Maintenance Savings</div>
+                    <div class="result-value" id="maintenanceSavings">$28,500</div>
+                    <div style="font-size: 0.9rem; color: #2ed573;">
+                        <i class="fas fa-arrow-down"></i> 67% reduction
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div style="font-size: 1rem; color: #666;">Total Annual Savings</div>
+                    <div class="result-value" id="totalSavings">$71,250</div>
+                    <div style="font-size: 0.9rem; color: var(--primary);">
+                        <i class="fas fa-dollar-sign"></i> ROI in 8.4 months
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Timeline -->
+    <section class="section" id="timeline">
+        <h2 class="section-title">Implementation Timeline</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div
+                            style="width: 50px; height: 50px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3>Week 1-2: Assessment & Planning</h3>
+                    </div>
+                    <p>Comprehensive campus energy audit, AC unit inventory, and custom solution design.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div
+                            style="width: 50px; height: 50px; background: var(--secondary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>Week 3-4: IoT Installation</h3>
+                    </div>
+                    <p>Non-invasive sensor installation on all AC units with zero disruption to classes.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div
+                            style="width: 50px; height: 50px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h3>Week 5: System Integration</h3>
+                    </div>
+                    <p>Dashboard setup, staff training, and integration with existing campus systems.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div
+                            style="width: 50px; height: 50px; background: var(--success); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Week 6+: Optimization & Reporting</h3>
+                    </div>
+                    <p>Continuous optimization, predictive analytics activation, and monthly savings reporting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <h2 class="cta-title">Ready to Transform Your Campus?</h2>
+        <p class="cta-subtitle">Join 50+ universities already saving millions with intelligent energy management.
+            Schedule a personalized demo today.</p>
+
+        <div class="cta-buttons">
+            <a href="#contact-form" class="cta-button">
+                <i class="fas fa-calendar-check"></i> Schedule Campus Audit
+            </a>
+            <a href="#" class="cta-button secondary">
+                <i class="fas fa-file-download"></i> Download Case Study
+            </a>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 3rem; margin-top: 4rem; flex-wrap: wrap;">
+            <div style="text-align: center;">
+                <div style="font-size: 2rem; color: white; margin-bottom: 0.5rem;">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div style="font-weight: 600;">University of Technology</div>
+                <div style="font-size: 0.9rem; opacity: 0.8;">Saves $182,000 annually</div>
+            </div>
+
+            <div style="text-align: center;">
+                <div style="font-size: 2rem; color: white; margin-bottom: 0.5rem;">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div style="font-weight: 600;">Northern State University</div>
+                <div style="font-size: 0.9rem; opacity: 0.8;">Reduced energy by 42%</div>
+            </div>
+
+            <div style="text-align: center;">
+                <div style="font-size: 2rem; color: white; margin-bottom: 0.5rem;">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div style="font-weight: 600;">Metro College System</div>
+                <div style="font-size: 0.9rem; opacity: 0.8;">86% fewer breakdowns</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="color: white; margin-bottom: 1.5rem;">
+                    <i class="fas fa-brain"></i> ProSensia
+                </div>
+                <p style="color: #ccc; margin-bottom: 1.5rem;">Intelligent energy management and predictive maintenance
+                    for educational institutions.</p>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-youtube"></i></a>
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Platform</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Energy Intelligence</a></li>
+                    <li><a href="#">Predictive Maintenance</a></li>
+                    <li><a href="#">Dashboard Demo</a></li>
+                    <li><a href="#">Mobile App</a></li>
+                    <li><a href="#">API Documentation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Solutions</h3>
+                <ul class="footer-links">
+                    <li><a href="#">For Universities</a></li>
+                    <li><a href="#">For Colleges</a></li>
+                    <li><a href="#">For K-12 Schools</a></li>
+                    <li><a href="#">For Corporate Campuses</a></li>
+                    <li><a href="#">For Government Buildings</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> info@ProSensia.com</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Innovation Drive, Tech City</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2024 ProSensia. All rights reserved. | <a href="#" style="color: var(--secondary);">Privacy
+                    Policy</a> | <a href="#" style="color: var(--secondary);">Terms of Service</a></p>
+        </div>
+    </footer>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
